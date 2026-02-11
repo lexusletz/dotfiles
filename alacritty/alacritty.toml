@@ -7,16 +7,22 @@
 
 option_as_alt = "Both"
 
-# opacity = 1
-# blur = true
+opacity = 0.8
+blur = true
 
 [colors.primary]
-#background = "#000000"
+background = "#000000"
 
 [font]
-normal.family = "JetBrainsMono Nerd Font"
-normal.style = "SemiBold"
+normal.family = "CaskaydiaCove Nerd Font"
+normal.style = "Regular"
 
-offset.y = 0
+bold.family = "CaskaydiaCove Nerd Font"
+bold.style = "SemiBold"
 
-size = 24
+italic.family = "JetBrainsMono Nerd Font"
+italic.style = "SemiBold"
+
+offset.y = 4
+
+size = 18

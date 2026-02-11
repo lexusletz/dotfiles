@@ -18,9 +18,9 @@ M.save_all_modified = function()
   end
 
   if saved_count > 0 then
-    vim.notify(string.format("Se han guardado %d archivo(s)", saved_count), vim.log.levels.INFO)
+    vim.notify(string.format("%d saved files", saved_count), vim.log.levels.INFO)
   else
-    vim.notify("No había archivos que guardar", vim.log.levels.INFO)
+    vim.notify("No files to save", vim.log.levels.INFO)
   end
 end
 
@@ -36,7 +36,7 @@ M.show_modified_buffers = function()
   end
 
   if not has_modified then
-    vim.notify("No hay buffers modificados", vim.log.levels.INFO)
+    vim.notify("No modified buffers", vim.log.levels.INFO)
     return
   end
 
@@ -52,15 +52,15 @@ M.show_modified_buffers = function()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].modified then
       local name = vim.api.nvim_buf_get_name(buf)
-      if name == "" then name = "[Buffer Sin Nombre]" end
+      if name == "" then name = "[No name buffer]" end
 
       table.insert(modifier_buffers, buf)
-      table.insert(display_items, name .. " [Modificado]")
+      table.insert(display_items, name .. " [Modified]")
     end
   end
 
   vim.ui.select(display_items, {
-    prompt = "Buffers modificados:",
+    prompt = "Modified Buffers:",
     format_item = function(item) return item end,
   }, function(choice, idx)
     if not choice then return end
@@ -68,15 +68,15 @@ M.show_modified_buffers = function()
     local selected_buf = modifier_buffers[idx]
     vim.api.nvim_win_set_buf(0, selected_buf)
 
-    vim.ui.select({ "Guardar", "No Guardar", "Guardar Todos" }, {
-      prompt = "¿Que deseas hacer con este buffer?"
+    vim.ui.select({ "Save", "Don't save", "Save all" }, {
+      prompt = "What do you want to do with this buffer?"
     }, function(action)
-      if action == "Guardar" then
+      if action == "Save" then
         vim.cmd("write")
         vim.defer_fn(function()
           M.show_modified_buffers()
         end, 100)
-      elseif action == "Guardar Todas" then
+      elseif action == "Save all" then
         M.save_all_modified()
       end
     end)

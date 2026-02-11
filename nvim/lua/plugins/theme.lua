@@ -11,15 +11,15 @@ return {
     vim.cmd("colorscheme rose-pine-moon")
   end,
 }
---return {
---  "sainnhe/gruvbox-material",
---  lazy = false,
---  priority = 1000,
---  opts = {},
---  config = function()
---    vim.cmd("colorscheme gruvbox-material")
---  end
---}
+-- return {
+--   "sainnhe/gruvbox-material",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {},
+--   config = function()
+--     vim.cmd("colorscheme gruvbox-material")
+--   end
+-- }
 -- return {
 --   "catppuccin/nvim",
 --   name = "catppuccin",
@@ -53,20 +53,20 @@ return {
 --     vim.cmd("colorscheme nord")
 --   end
 -- }
---return {
---  "blazkowolf/gruber-darker.nvim",
---  lazy = false,
---  priority = 1000,
---  config = function()
---    vim.cmd("colorscheme gruber-darker")
---  end
---}
 -- return {
---   "thesimonho/kanagawa-paper.nvim",
+--   "blazkowolf/gruber-darker.nvim",
 --   lazy = false,
 --   priority = 1000,
 --   config = function()
---     vim.cmd("colorscheme kanagawa-paper")
+--     vim.cmd("colorscheme gruber-darker")
+--   end
+-- }
+-- return {
+--   "rebelot/kanagawa.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd("colorscheme kanagawa-wave")
 --   end
 -- }
 -- return {
