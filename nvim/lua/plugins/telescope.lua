@@ -16,7 +16,7 @@ return {
   config = function()
     require("telescope").setup {
       defaults = {
-        file_ignore_patterns = { "%.class", "^bin/", "^build/", "^node_modules/" }
+        file_ignore_patterns = { "%.class", "^bin/", "^build/", "node_modules", "dist", "%.sql" }
       },
       extensions = {
         ['ui-select'] = {

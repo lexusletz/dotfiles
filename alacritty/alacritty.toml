@@ -1,28 +1,30 @@
 #[env]
 #TERM = "alacritty"
 
+[general]
+import = [
+  "~/.config/alacritty/themes/themes/aura.toml",
+]
+
 [window]
-# padding.x = 10
-# padding.y = 10
+padding.x = 10
+padding.y = 10
 
-option_as_alt = "Both"
+# Only uncomment on MacOS
+# option_as_alt = "Both"
 
-opacity = 0.8
+opacity = 0.7
 blur = true
 
 [colors.primary]
 background = "#000000"
 
 [font]
-normal.family = "CaskaydiaCove Nerd Font"
-normal.style = "Regular"
+normal.family = "Jetbrains Mono Nerd Font"
+normal.style = "SemiBold"
 
-bold.family = "CaskaydiaCove Nerd Font"
-bold.style = "SemiBold"
+# Only uncomment when need to disable italics
+# italic.family = "Maple Mono"
+# italic.style = "SemiBold"
 
-italic.family = "JetBrainsMono Nerd Font"
-italic.style = "SemiBold"
-
-offset.y = 4
-
-size = 18
+size = 14

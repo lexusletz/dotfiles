@@ -4,13 +4,13 @@
 --     vim.cmd("colorscheme melange")
 --   end
 -- }
-return {
-  "rose-pine/neovim",
-  name = "rose-pine",
-  config = function()
-    vim.cmd("colorscheme rose-pine-moon")
-  end,
-}
+-- return {
+--   "rose-pine/neovim",
+--   name = "rose-pine",
+--   config = function()
+--     vim.cmd("colorscheme rose-pine-moon")
+--   end,
+-- }
 -- return {
 --   "sainnhe/gruvbox-material",
 --   lazy = false,
@@ -93,3 +93,13 @@ return {
 --     vim.cmd("colorscheme vague")
 --   end
 -- }
+return {
+  "navarasu/onedark.nvim",
+  config = function()
+    require('onedark').setup {
+      style = 'deep'
+    }
+
+    require('onedark').load()
+  end
+}
