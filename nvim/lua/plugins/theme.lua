@@ -1,105 +1,107 @@
--- return {
---   "savq/melange-nvim",
---   config = function()
---     vim.cmd("colorscheme melange")
---   end
--- }
--- return {
---   "rose-pine/neovim",
---   name = "rose-pine",
---   config = function()
---     vim.cmd("colorscheme rose-pine-moon")
---   end,
--- }
--- return {
---   "sainnhe/gruvbox-material",
---   lazy = false,
---   priority = 1000,
---   opts = {},
---   config = function()
---     vim.cmd("colorscheme gruvbox-material")
---   end
--- }
--- return {
---   "catppuccin/nvim",
---   name = "catppuccin",
---   lazy = false,
---   priority = 1000,
---   opts = {
---     flavour = "mocha", -- latte, frappe, macchiato, mocha
---     transparent_background = true,
---     term_colors = true,
---     styles = {
---       comments = { "italic" },
---       conditionals = { "italic" },
---       functions = { "bold" },
---       keywords = { "bold" },
---       strings = { "italic" },
---       variables = {},
---       numbers = {},
---       operators = {},
---     },
---   },
---   config = function(_, opts)
---     require("catppuccin").setup(opts)
---     vim.cmd.colorscheme("catppuccin")
---   end,
--- }
--- return {
---   "shaunsingh/nord.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme nord")
---   end
--- }
--- return {
---   "blazkowolf/gruber-darker.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme gruber-darker")
---   end
--- }
--- return {
---   "rebelot/kanagawa.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme kanagawa-wave")
---   end
--- }
--- return {
---   "folke/tokyonight.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme tokyonight")
---   end
--- }
--- return {
---   "oahlen/iceberg.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme iceberg")
---   end
--- }
--- return {
---   "vague2k/vague.nvim",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.cmd("colorscheme vague")
---   end
--- }
-return {
-  "navarasu/onedark.nvim",
-  config = function()
-    require('onedark').setup {
-      style = 'deep'
-    }
+--- @param color string?
+function ColorMyPencils(color)
+  color = color or "bamboo"
+  vim.cmd.colorscheme(color)
 
-    require('onedark').load()
-  end
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
+return {
+  {
+    "ellisonleao/gruvbox.nvim",
+    name = "gruvbox",
+    config = function()
+      require("gruvbox").setup({
+        terminal_colors = true,
+        undercurl = true,
+        underline = false,
+        bold = true,
+        italic = {
+          strings = false,
+          emphasis = false,
+          comments = false,
+          operators = false,
+          folds = false,
+        },
+        strikethrough = true,
+        invert_selection = false,
+        invert_signs = false,
+        invert_tabline = false,
+        invert_intend_guides = false,
+        inverse = true,
+        contrast = "",
+        palette_overrides = {},
+        dim_inactive = false,
+        transparent_mode = false,
+      })
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    config = function()
+      require("tokyonight").setup({
+        style = "storm",
+        transparent = true,
+        terminal_colors = true,
+        styles = {
+          comments = { italic = false },
+          keywords = { italic = false },
+          sidebars = "dark",
+          floats = "dark",
+        }
+      })
+    end
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require('rose-pine').setup({
+        variant = "auto",
+        dark_variant = "main",
+        dim_inactive_windows = false,
+        extend_background_behind_borders = true,
+        disable_background = true,
+        styles = {
+          italic = false,
+          bold = true,
+        },
+      })
+
+      ColorMyPencils()
+    end
+  },
+  {
+    "dgox16/oldworld.nvim",
+    config = function()
+      require("oldworld").setup({})
+    end
+  },
+  {
+    "vague-theme/vague.nvim",
+    config = function()
+      require('vague').setup({
+
+      })
+    end
+  },
+  {
+    "xero/miasma.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      ColorMyPencils("miasma")
+    end
+  },
+  {
+    "ribru17/bamboo.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('bamboo').load()
+
+      ColorMyPencils("bamboo")
+    end
+  }
 }

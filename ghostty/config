@@ -1,8 +1,17 @@
-font-family = "BigBlueTerm437 Nerd Font"
-font-size = 12
-background-opacity = 0.6
-background-blur = true
-background = "#000000"
+font-family = "JetBrainsMono Nerd Font Propo"
+font-size = 16
+font-style = bold
+font-style-italic = false
+adjust-cell-height = 4
+
+theme = Miasma
+# background = 000000
+# background-opacity = 0.95
+# background-blur = true
+
 maximize = true
-fullscreen = true
-macos-non-native-fullscreen = visible-menu
+# fullscreen = true
+# macos-non-native-fullscreen = visible-menu
+
+# Shaders
+# custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl

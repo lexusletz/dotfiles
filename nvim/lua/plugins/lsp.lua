@@ -89,19 +89,6 @@ return {
           }
         },
       },
-      rust_analyzer = {
-        capabilities = capabilities,
-        settings = {
-          ['rust-analyzer'] = {
-            cargo = {
-              allFeatures = true,
-            },
-            procMacro = {
-              enable = true,
-            },
-          }
-        }
-      },
     }
 
     require('mason-lspconfig').setup {
@@ -111,8 +98,8 @@ return {
         function(server_name)
           local server = servers[server_name] or {}
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          -- vim.lsp.enable(server)
-          require('lspconfig')[server_name].setup(server)
+          vim.lsp.config(server_name, server)
+          vim.lsp.enable(server_name)
         end,
       },
     }
