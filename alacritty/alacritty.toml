@@ -15,21 +15,21 @@ startup_mode = "Maximized"
 # Only uncomment on MacOS
 # option_as_alt = "Both"
 
-# opacity = 0.85
-# blur = true
+opacity = 0.85
+blur = true
 
-[colors.primary]
-background = "#000000"
+# [colors.primary]
+# background = "#000000"
 
 [font]
-normal.family = "Maple Mono NF"
-normal.style = "Medium"
+normal.family = "CaskaydiaCove Nerd Font"
+normal.style = "Bold"
 
 # Only uncomment when need to disable italics
 # italic.family = "Maple Mono"
 # italic.style = "SemiBold"
 
-size = 22
+size = 16
 
 [keyboard]
 bindings = [{ key = "Return", mods = "Shift", chars = "\u001b\r"}]

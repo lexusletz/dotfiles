@@ -36,11 +36,6 @@ return {
         -- Jump to the type of the word under your cursor.
         map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
-        -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-        ---@param client vim.lsp.Client
-        ---@param method vim.lsp.protocol.Method
-        ---@param bufnr? integer some lsp support methods only in specific files
-        ---@return boolean
         local function client_supports_method(client, method, bufnr)
           if vim.fn.has 'nvim-0.11' == 1 then
             return client:supports_method(method, bufnr)
@@ -78,13 +73,20 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local servers = {
-      lua_la = {
+      lua_ls = {
         capabilities = capabilities,
         settings = {
           Lua = {
             runtime = { version = "LuaJIT" },
-            diagnostics = { globals = { "vim" } },
-            workspace = { library = vim.api.nvim_get_runtime_file("", true), checkThirdParty = false },
+            -- diagnostics = { globals = {} },
+            workspace = {
+              library = {
+                vim.env.VIMRUNTIME,
+                vim.env.VIMRUNTIME .. "/lua",
+                "/usr/share/hypr/stubs",
+              },
+              checkThirdParty = false
+            },
             telemetry = { enable = false },
           }
         },
