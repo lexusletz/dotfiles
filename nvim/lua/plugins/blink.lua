@@ -16,8 +16,6 @@ return {
     },
     'folke/lazydev.nvim',
   },
-  --- @module 'blink-cmp'
-  --- @type blink.cmp.Config
   opts = {
     keymap = {
       ['<Tab>'] = {},

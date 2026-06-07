@@ -1,6 +1,6 @@
 --- @param color string?
 function ColorMyPencils(color)
-  color = color or "bamboo"
+  color = color or "vague"
   vim.cmd.colorscheme(color)
 
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -94,14 +94,4 @@ return {
       ColorMyPencils("miasma")
     end
   },
-  {
-    "ribru17/bamboo.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('bamboo').load()
-
-      ColorMyPencils("bamboo")
-    end
-  }
 }
