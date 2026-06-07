@@ -12,7 +12,7 @@ padding.y = 10
 
 startup_mode = "Maximized"
 
-# Only uncomment on MacOS
+# Only uncomment on MacOS when trying to use Emacs
 # option_as_alt = "Both"
 
 opacity = 0.85
@@ -29,7 +29,7 @@ normal.style = "Bold"
 # italic.family = "Maple Mono"
 # italic.style = "SemiBold"
 
-size = 16
+size = 18
 
 [keyboard]
 bindings = [{ key = "Return", mods = "Shift", chars = "\u001b\r"}]
