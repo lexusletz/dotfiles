@@ -1,17 +1,17 @@
-font-family = "JetBrainsMono Nerd Font Propo"
-font-size = 16
+font-family = "IosevkaTerm Nerd Font"
+font-size = 14
 font-style = bold
 font-style-italic = false
 adjust-cell-height = 4
 
-theme = Miasma
-# background = 000000
-# background-opacity = 0.95
+theme = Catppuccin Mocha
+# background = 36454F
+# background-opacity = 0.98
 # background-blur = true
 
-maximize = true
+# maximize = true
 # fullscreen = true
 # macos-non-native-fullscreen = visible-menu
 
 # Shaders
-# custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
+custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
