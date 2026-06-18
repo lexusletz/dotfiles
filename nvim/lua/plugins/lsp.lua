@@ -91,6 +91,19 @@ return {
           }
         },
       },
+      rust_analyzer = {
+        capabilities = capabilities,
+        settings = {
+          ['rust-analyzer'] = {
+            cargo = {
+              allFeatures = true,
+            },
+            procMacro = {
+              enable = true,
+            },
+          },
+        }
+      }
     }
 
     require('mason-lspconfig').setup {
