@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  event = "VimEnter",
+  event = "InsertEnter",
   version = '1.*',
   dependencies = {
     {
@@ -15,6 +15,7 @@ return {
       opts = {},
     },
     'folke/lazydev.nvim',
+    { 'echasnovski/mini.icons', opts = {} }
   },
   opts = {
     keymap = {
@@ -23,28 +24,46 @@ return {
       preset = "default"
     },
     appearance = {
-      nerd_font_variant = 'mono'
+      nerd_font_variant = 'mono',
+      use_nvim_cmp_as_default = true,
     },
     completion = {
-      documentation = {
-        draw = function(opts)
-          if opts.item and opts.item.documentation and opts.item.documentation.value then
-            local out = require("pretty_hover.parser").parse(opts.item.documentation.value)
-            opts.item.documentation.value = out:string()
+      keyword = { range = "full" },
+      ghost_text = { enabled = true },
+
+      menu = {
+        border = "rounded",
+        cmdline_position = function()
+          if vim.fn.getcmdtype() == '/' or vim.fn.getcmdtype() == '?' then
+            return { vim.fn.winline() - 2, 0 }
           end
 
-          opts.default_implementation(opts)
-        end
+          return { vim.fn.winline() + 1, 0 }
+        end,
+        winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+        draw = {
+          padding = 1,
+          gap = 2,
+          columns = {
+            { "label",     "label_description", gap = 1 },
+            { "kind_icon", "kind",              gap = 1 },
+          }
+        },
+      },
+
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
       },
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets' },
       providers = {
-        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 }
+        lsp = { async = true },
+        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100, fallbacks = { "lsp" } }
       }
     },
     snippets = { preset = 'luasnip' },
-    fuzzy = { implementation = 'lua' },
-    signature = { enabled = true },
+    signature = { enabled = true, window = { border = "rounded" } },
   }
 }
