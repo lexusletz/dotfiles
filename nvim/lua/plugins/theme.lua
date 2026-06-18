@@ -1,6 +1,6 @@
 --- @param color string?
 function ColorMyPencils(color)
-  color = color or "catppuccin-mocha"
+  color = color or "koda"
   vim.cmd.colorscheme(color)
 
   -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -82,16 +82,8 @@ return {
     "vague-theme/vague.nvim",
     config = function()
       require('vague').setup({
-
+        transparent = true,
       })
-    end
-  },
-  {
-    "xero/miasma.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      ColorMyPencils("miasma")
     end
   },
   {
@@ -101,4 +93,20 @@ return {
       ColorMyPencils()
     end
   },
+  {
+    "oskarnurm/koda.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("koda").setup({ transparent = true })
+      ColorMyPencils()
+    end,
+  },
+  {
+    "thesimonho/kanagawa-paper.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+    },
+  }
 }
