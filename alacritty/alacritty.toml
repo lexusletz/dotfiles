@@ -1,32 +1,21 @@
 [env]
 TERM = "xterm-256color"
 
-# [general]
-# import = [
-#   "~/.config/alacritty/themes/themes/tokyo_night.toml",
-# ]
-
 [window]
 padding.x = 10
 padding.y = 10
 
 startup_mode = "Maximized"
 
-# Only uncomment on MacOS when trying to use Emacs
-# option_as_alt = "Both"
-
-# opacity = 0.85
-# blur = true
-
 [font]
 normal.family = "BlexMono Nerd Font"
-normal.style = "Medium"
+normal.style = "SemiBold"
 
 # Only uncomment when need to disable italics
 italic.family = "BlexMono Nerd Font"
-italic.style = "Medium"
+italic.style = "SemiBold"
 
-size = 20
+size = 12
 
 [keyboard]
 bindings = [{ key = "Return", mods = "Shift", chars = "\u001b\r"}]
